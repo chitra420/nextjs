@@ -14,15 +14,15 @@ export default function Contact(){
         </Head>
         <Layout>
             <div className="container">
-            <div className="row">
+                <div className="row mb-5">
+                    <TournamentData></TournamentData>
+                </div>
+                <div className="row">
                     <div className="col-md-12"><h1></h1><SwrFetch></SwrFetch></div>
                 </div>
                 <div className="row">
-                    <div className="col-md-6">
+                    <div className="col-md-12">
                         <UserData></UserData>
-                    </div>
-                    <div className="col-md-6">
-                        <TournamentData></TournamentData>
                     </div>
                 </div>
                 

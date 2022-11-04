@@ -7,7 +7,7 @@ export default function TournamentData(){
 
     useEffect(() => {
         setLoading(true)
-        fetch('http://localhost/GyanOk_Vue/public/api/get-users')
+        fetch('https://jsonplaceholder.typicode.com/comments')
           .then((res) => res.json())
           .then((data) => {
             setBlogs(data)
@@ -16,31 +16,22 @@ export default function TournamentData(){
       }, [])
 
     if(isLoading){
-        return <p className="text-center">Please wait until page is loading...</p>
+        return <p className="text-center">Comments loading...</p>
     }
     return (
-            <div className="table-responsive">
-                <table className="table table-bordered">
-                    <thead>
-                        <tr>
-                            <th>Name</th>
-                            <th>Email</th>
-                            <th>Phone Number</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {
-                            blogs.map((item :any)=>{
-                                return <tr key={item.id}>
-                                    <td>{item.name}</td>
-                                    <td>{item.email}</td>
-                                    <td>{item.phone_number}</td>
-                                </tr>
-                            }) 
-                        }
-                    </tbody>
-                </table>
-            </div>
+
+            <>
+                {
+                    blogs.map((item :any)=>{
+                        return <div className="col-md-6" key={item.id}><div className="card mb-4">
+                            <div className="card-body">
+                                <h4>{item.email}</h4>
+                                <p>{item.body}</p>
+                            </div>
+                        </div></div>
+                    }) 
+                }
+            </>
     )
     
 }
